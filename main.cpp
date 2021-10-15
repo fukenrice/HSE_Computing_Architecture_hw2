@@ -32,14 +32,18 @@ int main(int argc, char* argv[]) {
         errMessage1();
         return 1;
     }
-
     cout << "Start"<< endl;
     Container c{10000};
 
-    ////cout << "argv[1] = " << argv[1] << "\n";
     if(!strcmp(argv[1], "-f")) {
         ifstream ifst(argv[2]);
-        c.In(ifst);
+        try {
+            c.In(ifst);
+        }
+        catch (invalid_argument e){
+            std::cout << e.what();
+            return 3;
+        }
     }
     else if(!strcmp(argv[1], "-n")) {
         auto size = atoi(argv[2]);

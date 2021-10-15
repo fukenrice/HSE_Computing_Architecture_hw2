@@ -3,7 +3,7 @@
 //
 
 #include "container.h"
-
+#include <iostream>
 //------------------------------------------------------------------------------
 // Конструктор контейнера
 Container::Container(int s): len{0}, size{s} {
